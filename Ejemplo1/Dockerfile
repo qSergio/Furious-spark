@@ -1,27 +1,25 @@
 # 
 
-FROM jupyter/pyspark-notebook:d4cbf2f80a2a
+FROM jupyter/pyspark-notebook
 
 ENV HOME="/home/jovyan"
 
 RUN pip install pyspark-stubs
+# No estoy seguro de si necesita instalar dl
+# RUN pip install sparkdl
+RUN pip install horovod[spark]
 
-#Jupyter Lab
+# Jupyter Lab
 ENV SPARK_JUPYTER_ENABLE_LABHOME yes
 
-# Disable Notebook App Token
+# para cambiar el token de ingreso a spark
 ENV JUPYTER_TOKEN "probandospark"
 
 # Ensures spark-submit CLI works
+# Falta verificar esta afirmación
 ENV PATH $PATH:$SPARK_HOME/bin
 
-## Exposing necessary ports
 # Jupyter Lab
 EXPOSE 8888/tcp
-# SparkUI ports
+# SparkUI port para tener aplicación extra corriendo
 EXPOSE 4040/tcp
-#EXPOSE 4041/tcp
-#EXPOSE 4042/tcp
-#EXPOSE 4043/tcp
-#EXPOSE 4044/tcp
-#EXPOSE 4045/tcp
