@@ -6,6 +6,7 @@ __pycache__/
 *.json
 *.pkl
 *.parquet
+.DS_Store
 
 # C extensions
 *.so
