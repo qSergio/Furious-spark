@@ -5,6 +5,7 @@ __pycache__/
 *.csv
 *.json
 *.pkl
+*.txt
 *.parquet
 .DS_Store
 
