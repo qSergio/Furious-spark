@@ -8,7 +8,7 @@ __pycache__/
 *.txt
 *.parquet
 .DS_Store
-
+*.xlsx
 # C extensions
 *.so
 
